@@ -1,0 +1,4926 @@
+{
+  "openapi" : "3.0.0",
+  "servers" : [ {
+    "description" : "SwaggerHub API Auto Mocking",
+    "url" : "https://virtserver.swaggerhub.com/Bitstreet7/Keywo_image/1.0.0"
+  }, {
+    "description" : "Keywo Image API",
+    "url" : "http://192.168.2.124/keywoimage_web/1.0.0/"
+  } ],
+  "info" : {
+    "description" : "KeywoImage API",
+    "version" : "1.0.0",
+    "title" : "KeywoImage API",
+    "contact" : {
+      "email" : "ajaysharma@bitstreet.in"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "tags" : [ {
+    "name" : "post",
+    "description" : "KeywoImage"
+  }, {
+    "name" : "developers",
+    "description" : "Operations available to regular developers"
+  } ],
+  "paths" : {
+    "/post/create" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "create post in database",
+        "operationId" : "createPost",
+        "description" : "create post in database.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of post owner.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_image",
+          "description" : "Image",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_hash_tags",
+          "description" : "Keyword hastags CSV",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "minimum" : 1,
+            "maximum" : 3
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_user_tags",
+          "description" : "user hastags CSV",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "minimum" : 1,
+            "maximum" : 5
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_allow_comment",
+          "description" : "post comment setting 0=inactive 1=active",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_ask_price",
+          "description" : "Ask price for post",
+          "schema" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_total_credits",
+          "description" : "Total credits earned by post",
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_scope_setting",
+          "description" : "Set scope for post",
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_ownership_status",
+          "description" : "post ownership status - created or sold or purchased",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/createpost"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/update" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "update post in database",
+        "operationId" : "updatePost",
+        "description" : "update post in database.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of post owner.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_image",
+          "description" : "Image",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_hash_tags",
+          "description" : "Keyword hastags CSV",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "minimum" : 1,
+            "maximum" : 3
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_user_tags",
+          "description" : "user hastags CSV",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "minimum" : 1,
+            "maximum" : 5
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_allow_comment",
+          "description" : "post comment setting 0=inactive 1=active",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_ask_price",
+          "description" : "Ask price for post",
+          "schema" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_total_credits",
+          "description" : "Total credits earned by post",
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_scope_setting",
+          "description" : "Set scope for post",
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_data_ownership_status",
+          "description" : "post ownership status - created or sold or purchased",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/updatepost"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/delete" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "delete post in database",
+        "operationId" : "deletePost",
+        "description" : "delete post in database.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID of post owner.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "postID",
+          "description" : "pass postID of post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/deletepost"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/like" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "like post in database",
+        "operationId" : "likePost",
+        "description" : "like post in database.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass userID of post owner.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "liked_user_id",
+          "description" : "pass userID of user who liked to post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/likepost"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/share" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "share post in database",
+        "operationId" : "sharePost",
+        "description" : "share post in database.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass userID of post owner.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "shared_user_id",
+          "description" : "user_id of shared user",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_visibility_status",
+          "description" : "post should be only me, followers, public",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_comment_status",
+          "description" : "post comment status",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/sharepost"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/hide-status" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "hide post in database",
+        "operationId" : "hidePost",
+        "description" : "hide post in database.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "hide_status",
+          "description" : "hide status",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/hidepost"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/report" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "report post in database",
+        "operationId" : "reportPost",
+        "description" : "report post in database.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user who is reporting post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "report_comments",
+          "description" : "report status",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "report_status",
+          "description" : "report status",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/reportpost"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/bookmark-status" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "bookmark post in database",
+        "operationId" : "bookmarkPost",
+        "description" : "bookmark post in database.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user who is reporting post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "bookmark_status",
+          "description" : "bookmark status",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/bookmarkpost"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/posts" : {
+      "post" : {
+        "tags" : [ "Post" ],
+        "summary" : "get user post in database",
+        "operationId" : "getPost",
+        "description" : "get user post in database\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID of post owner.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "pagenumber",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/posts"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/comments" : {
+      "post" : {
+        "tags" : [ "Post-Comment" ],
+        "summary" : "get post comments in database",
+        "operationId" : "getPostComment",
+        "description" : "get post comments in database\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post comment.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/postcomments"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/comment/create" : {
+      "post" : {
+        "tags" : [ "Post-Comment" ],
+        "summary" : "create post comment in database",
+        "operationId" : "CommentCreate",
+        "description" : "create post comment in database\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post comment.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "user_id of comments",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "comments",
+          "description" : "comments",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "parent_comment_id",
+          "description" : "user ID of comments",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/postcommentcreate"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/comment/update" : {
+      "post" : {
+        "tags" : [ "Post-Comment" ],
+        "summary" : "create update comment in database",
+        "operationId" : "CommentUpdate",
+        "description" : "update post comment in database\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "comment_id",
+          "description" : "pass comment_id of comment.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post comment.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "user_id of comments",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "comments",
+          "description" : "comments",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "parent_comment_id",
+          "description" : "user ID of comments",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/postcommentupdate"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/post/comment/delete" : {
+      "post" : {
+        "tags" : [ "Post-Comment" ],
+        "summary" : "delete comment in database",
+        "operationId" : "Commentdelete",
+        "description" : "delete comment in database\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "comment_id",
+          "description" : "pass comment_id of comment.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "pass post_id of post comment.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "user_id of comments",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/postcommentdelete"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/bids-received/amount-blocked-for-bid" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "Display amount block for bids",
+        "operationId" : "amountblockedforbid",
+        "description" : "Display amount block for bids \n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user who is reporting post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/bidreceived-amountblockedforbid"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/bids-received/" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "list of bids received for posts of current user.",
+        "operationId" : "listofbidsforpost",
+        "description" : "list of bids received for posts of current user. \n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user who is reporting post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/bidreceived"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/bids-received/accept-bid" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "User  accepts bid",
+        "operationId" : "Useracceptsbid",
+        "description" : "User  accepts bid.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user who is owns post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "bidder_user_id",
+          "description" : "pass user_id of user who has bid on post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "bid_id",
+          "description" : "pass bid_id of the bid being accepted.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/bidreceived-accept-bid"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/bids-received/edit-ask-price" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "edits ask price",
+        "operationId" : "Useredits as price",
+        "description" : "User  edits ask price.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user who is owns post.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "bid_amount",
+          "description" : "bid amount",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "bid_id",
+          "description" : "pass bid_id of the bid being accepted.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/bidreceived-edit-ask-price"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/bids-sent" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "Get list of bids sent for posts of current user.",
+        "operationId" : "tradebidssent",
+        "description" : "Get list of bids sent for posts of current user.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/bids-sent"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/bids-sent/buy-now" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "Buy post",
+        "operationId" : "bidssentbuynow",
+        "description" : "Buy post\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "post_id",
+          "description" : "post_id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "amount",
+          "description" : "amount",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/bids-sent-buy-now"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/bids-sent/update-bid" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "Buy post",
+        "operationId" : "bidssentbuynow",
+        "description" : "Buy post\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "bid_id",
+          "description" : "bid_id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "amount",
+          "description" : "amount",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/bids-sent-update-bid"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/history" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "trade history",
+        "operationId" : "tradehistory",
+        "description" : "Trade history\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/trade-history"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/history/sold" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "trade sold history",
+        "operationId" : "tradesoldistory",
+        "description" : "Trade sold history\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/trade-sold-history"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/history/purchased" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "trade purchased history",
+        "operationId" : "tradepurchasedistory",
+        "description" : "Trade purchased history\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/trade-purchased-history"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/history/deleted" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "trade deleted history",
+        "operationId" : "tradedeletedistory",
+        "description" : "Trade peletedurchased history\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/trade-deleted-history"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/history/network" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "trade network",
+        "operationId" : "trade network",
+        "description" : "trade network\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/trade-network"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/trade/history/network/privacy-status" : {
+      "post" : {
+        "tags" : [ "trade" ],
+        "summary" : "trade network privacy-status",
+        "operationId" : "trade network privacy-status",
+        "description" : "trade network\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "setting_status",
+          "description" : "network privacy settings",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/trade-network-privacy-status"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/login" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "Login into wallet section using tpin",
+        "operationId" : "walletlogin",
+        "description" : "Login into wallet section using tpin\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "tpin",
+          "description" : "tpin password",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-login"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/forgot-tpin" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "forgot tpin",
+        "operationId" : "walletforgottpin",
+        "description" : "forgot tpin\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "account_password",
+          "description" : "password of user account",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "tpin",
+          "description" : "tpin password",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "tpin_confirm",
+          "description" : "tpin password",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-forgot-tpin"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/forgot-tpin-verification" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "forgot tpin verification",
+        "operationId" : "forgottpinverification",
+        "description" : "forgot tpin\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "verification",
+          "description" : "verification code to reset forgot tpin",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "tpin",
+          "description" : "tpin password",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "tpin_confirm",
+          "description" : "tpin password",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-forgot-tpin-verification"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/history/transactions" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "Get all ITD tranactions for current user.",
+        "operationId" : "itdtransactionforuser",
+        "description" : "Get all ITD tranactions for current user.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id of user.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "from_date",
+          "description" : "transaction starting from date.",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "to_date",
+          "description" : "transaction end date.",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-history-transaction"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/history/earnings" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "Get list of credits earned along with ITD and its conversion rate.",
+        "operationId" : "itdearningsforuser",
+        "description" : "Get list of credits earned along with ITD and its conversion rate.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "credits_earned",
+          "description" : "earned credits",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "equivalent_itd_amount,",
+          "description" : "its actual amount in ITD.",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "itd_conversion_rate",
+          "description" : "rate value of ITD conversion",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "date",
+          "description" : "date",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-history-earnings"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/send-itd" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "Send ITD to other user",
+        "operationId" : "walletsenditd",
+        "description" : "Send ITD to other user",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "recipient_user_id",
+          "description" : "Recipient user_id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "user_id,",
+          "description" : "user_id of current user",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "recipient_firstname",
+          "description" : "Recipient firstname",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "recipient_lastname",
+          "description" : "Recipient lastname",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "recipient_handle",
+          "description" : "Recipient handle",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "itd_amount",
+          "description" : "sent ITD Amount",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "comments",
+          "description" : "comments for transfer.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-send-itd"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/receive-itd" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "receive ITD from other user",
+        "operationId" : "walletsenditd",
+        "description" : "receive ITD from other user",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id,",
+          "description" : "user_id of current user",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-receive-itd"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/requests/sent" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "Get sent requests under wallet.",
+        "operationId" : "walletrequestsent",
+        "description" : "Get sent requests under wallet.",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id,",
+          "description" : "user_id of current user",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-request-sent"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/requests/received" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "Get received requests under wallet.",
+        "operationId" : "walletrequestsreceived",
+        "description" : "Get received requests under wallet.",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id,",
+          "description" : "user_id of current user",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-request-received"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/wallet/itd-balance" : {
+      "post" : {
+        "tags" : [ "wallet" ],
+        "summary" : "Get ITD balance",
+        "operationId" : "itdbalance",
+        "description" : "Get ITD balance",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id,",
+          "description" : "user_id of current user",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/wallet-itd-balance"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/follow" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "follow a user",
+        "operationId" : "followuser",
+        "description" : "follow a user\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "following_id",
+          "description" : "pass following_id of whom to follow.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "status",
+          "description" : "status",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/accountfollow"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter accountfollow"
+          }
+        }
+      }
+    },
+    "/account/unfollow" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "unfollow a user",
+        "operationId" : "unfollowuser",
+        "description" : "follow a user\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "user_id",
+          "description" : "pass user_id current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "followingID",
+          "description" : "pass userID of whom to unfollow.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "status",
+          "description" : "status",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/accountunfollow"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/followers" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "list of followers of current userID",
+        "operationId" : "userfollowers",
+        "description" : "list of followers of current userID\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "status",
+          "description" : "status",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "page limit",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/accountfollower"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/following" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "list of users whom current user is following",
+        "operationId" : "userfollowing",
+        "description" : "list of users whom current user is following\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "status",
+          "description" : "status",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/accountfollowing"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/my-posts" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Get current user posts",
+        "operationId" : "myposts",
+        "description" : "Get current user posts\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/myposts"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/my-sold-posts" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Get current user sold posts",
+        "operationId" : "mysoldposts",
+        "description" : "Get current user sold posts\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/mysoldposts"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/my-purchased-posts" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Get purchased posts of current user",
+        "operationId" : "mypurchasedposts",
+        "description" : "Get purchased posts of current user\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/my-purchased-posts"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/my-shared-posts" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Get shared posts of current user",
+        "operationId" : "mypurchasedposts",
+        "description" : "Get shared posts of current user\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/my-shared-posts"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/my-tagged-posts" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Get list of User tagged posts",
+        "operationId" : "mytaggedposts",
+        "description" : "Get list of User tagged posts\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/my-tagged-posts"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/my-referral-details" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Get user referral-details",
+        "operationId" : "referraldetails",
+        "description" : "Get user referral-details\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/my-referral-details"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/blocked-users" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Get list of blocked users",
+        "operationId" : "blockedusers",
+        "description" : "Get list of blocked users\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/account/deactivate" : {
+      "post" : {
+        "tags" : [ "Account" ],
+        "summary" : "Deactivate current user account",
+        "operationId" : "account-deactivate",
+        "description" : "Deactivate current user account\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "status",
+          "description" : "status enabled=0, disabled=0",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/deactivate"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/hidden-posts" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "Get all hidden posts by user",
+        "operationId" : "hiddenposts",
+        "description" : "Get all hidden posts by user\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-hidden-posts"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/bookmarked-posts" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "get all bookmarked posts by user",
+        "operationId" : "bookmarkedposts",
+        "description" : "Show all bookmarked posts by user\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "pageLimit",
+          "description" : "pages to be displayed",
+          "required" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-bookmarked-posts"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/global-post-commenting-status" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "enable/disable Global post commenting.",
+        "operationId" : "globalpostcommentingstatus",
+        "description" : "enable/disable Global post commenting.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "comment_setting",
+          "description" : "comment setting",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/global-post-commenting-status"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/global-post-privacy-status" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "enable/disable Global post privacy.",
+        "operationId" : "globalpostprivacystatus",
+        "description" : "enable/disable Global post privacy.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "privacy_setting",
+          "description" : "privacy setting",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/global-post-privacy-status"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/global-network-privacy-status" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "enable/disable Global network privacy.",
+        "operationId" : "globalnetworkprivacystatus",
+        "description" : "enable/disable Global network privacy.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "network_setting",
+          "description" : "network setting",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/global-network-privacy-status"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/set-global-currency-preference" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "set currency.",
+        "operationId" : "setcurrency",
+        "description" : "set currency.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "currency",
+          "description" : "currency",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/set-global-currency-preference"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/notification-preference-status" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "set notification preference status.",
+        "operationId" : "notificationpreferencestatus",
+        "description" : "set notification preference status.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "email_notify",
+          "description" : "email notify",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        }, {
+          "in" : "query",
+          "name" : "push_notify",
+          "description" : "push notify",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/notification-preference-status"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/fingerprint-preference-status" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "set fingerprint preference status.",
+        "operationId" : "fingerprintpreferencestatus",
+        "description" : "set fingerprint preference status.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "status",
+          "description" : "status",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/fingerprint-preference-status"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/change-password" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "change password.",
+        "operationId" : "changepassword",
+        "description" : "set fingerprint preference status.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "old_password",
+          "description" : "password",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "password",
+          "description" : "new password",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "confirm_password",
+          "description" : "new password",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-change-password"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/change-tpin" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "change tpin.",
+        "operationId" : "changetpin",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "tpin",
+          "description" : "tpin code",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "confirm_tpin",
+          "description" : "tpin code",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/change-tpin"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/referral-details" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/referral-details"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/settings/blocked-users" : {
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/device-register" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/register" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/social-register" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/verify-account" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/login" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/resend-code" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/forgot-password" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/forgot-password/verify" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    },
+    "/user/forgot-password/reset" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "get referral-details.",
+        "operationId" : "referraldetails",
+        "description" : "set tpin.\n",
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "userID",
+          "description" : "pass userID current User.",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "in" : "query",
+          "name" : "page",
+          "description" : "page number",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/settings-blocked-users"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "settings-blocked-users" : {
+        "required" : [ "user_id", "firstname", "lastname", "handle" ],
+        "properties" : {
+          "user_id" : {
+            "type" : "string",
+            "example" : "d290f1ee6c544b0190e6d701748f0851"
+          },
+          "firstname" : {
+            "type" : "string",
+            "example" : "John"
+          },
+          "lastname" : {
+            "type" : "string",
+            "example" : "Smith"
+          },
+          "handle" : {
+            "type" : "string",
+            "example" : "JSmith"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "followers"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 3
+          }
+        },
+        "type" : "object"
+      },
+      "referral-details" : {
+        "required" : [ "referal_code", "code", "message" ],
+        "properties" : {
+          "referal_code" : {
+            "type" : "string",
+            "example" : "df546"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "change-tpin" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "settings-change-password" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "fingerprint-preference-status" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "notification-preference-status" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "set-global-currency-preference" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "global-network-privacy-status" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "global-post-privacy-status" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "global-post-commenting-status" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "settings-bookmarked-posts" : {
+        "required" : [ "post_image", "post_hash_tags", "post_user_tags", "post_data_allow_comments", "post_data_ask_price", "post_data_total_credits", "post_data_scope_setting", "post_data_owner_ship_status", "post_data_like_count", "post_data_share_count", "post_data_comment_count", "post_data_total_earnings", "code", "message" ],
+        "properties" : {
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_hash_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_user_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_data_allow_comments" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_ask_price" : {
+            "type" : "integer",
+            "example" : 34545.4569
+          },
+          "post_data_total_credits" : {
+            "type" : "integer",
+            "example" : 45
+          },
+          "post_data_scope_setting" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_owner_ship_status" : {
+            "type" : "string",
+            "example" : "created or sold or purchased"
+          },
+          "post_data_like_count" : {
+            "type" : "integer",
+            "example" : 3
+          },
+          "post_data_share_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_comment_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_total_earnings" : {
+            "type" : "integer",
+            "example" : 345345.5656
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Posts"
+          }
+        }
+      },
+      "settings-hidden-posts" : {
+        "required" : [ "post_image", "post_hash_tags", "post_user_tags", "post_data_allow_comments", "post_data_ask_price", "post_data_total_credits", "post_data_scope_setting", "post_data_owner_ship_status", "post_data_like_count", "post_data_share_count", "post_data_comment_count", "post_data_total_earnings", "code", "message" ],
+        "properties" : {
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_hash_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_user_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_data_allow_comments" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_ask_price" : {
+            "type" : "integer",
+            "example" : 34545.4569
+          },
+          "post_data_total_credits" : {
+            "type" : "integer",
+            "example" : 45
+          },
+          "post_data_scope_setting" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_owner_ship_status" : {
+            "type" : "string",
+            "example" : "created or sold or purchased"
+          },
+          "post_data_like_count" : {
+            "type" : "integer",
+            "example" : 3
+          },
+          "post_data_share_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_comment_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_total_earnings" : {
+            "type" : "integer",
+            "example" : 345345.5656
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Posts"
+          }
+        }
+      },
+      "deactivate" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "blocked-users" : {
+        "required" : [ "user_id", "firstname", "lastname", "handle" ],
+        "properties" : {
+          "user_id" : {
+            "type" : "string",
+            "example" : "d290f1ee6c544b0190e6d701748f0851"
+          },
+          "firstname" : {
+            "type" : "string",
+            "example" : "John"
+          },
+          "lastname" : {
+            "type" : "string",
+            "example" : "Smith"
+          },
+          "handle" : {
+            "type" : "string",
+            "example" : "JSmith"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "followers"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 3
+          }
+        },
+        "type" : "object"
+      },
+      "my-referral-details" : {
+        "required" : [ "referal_code", "code", "message" ],
+        "properties" : {
+          "referal_code" : {
+            "type" : "string",
+            "example" : "sdf876dss"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "UnFollowed successfully"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "my-tagged-posts" : {
+        "required" : [ "post_image", "post_hash_tags", "post_user_tags", "post_data_allow_comments", "post_data_ask_price", "post_data_total_credits", "post_data_scope_setting", "post_data_owner_ship_status", "post_data_like_count", "post_data_share_count", "post_data_comment_count", "post_data_total_earnings", "code", "message" ],
+        "properties" : {
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_hash_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_user_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_data_allow_comments" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_ask_price" : {
+            "type" : "integer",
+            "example" : 34545.4569
+          },
+          "post_data_total_credits" : {
+            "type" : "integer",
+            "example" : 45
+          },
+          "post_data_scope_setting" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_owner_ship_status" : {
+            "type" : "string",
+            "example" : "created or sold or purchased"
+          },
+          "post_data_like_count" : {
+            "type" : "integer",
+            "example" : 3
+          },
+          "post_data_share_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_comment_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_total_earnings" : {
+            "type" : "integer",
+            "example" : 345345.5656
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Posts"
+          }
+        }
+      },
+      "my-shared-posts" : {
+        "required" : [ "post_image", "post_hash_tags", "post_user_tags", "post_data_allow_comments", "post_data_ask_price", "post_data_total_credits", "post_data_scope_setting", "post_data_owner_ship_status", "post_data_like_count", "post_data_share_count", "post_data_comment_count", "post_data_total_earnings", "code", "message" ],
+        "properties" : {
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_hash_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_user_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_data_allow_comments" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_ask_price" : {
+            "type" : "integer",
+            "example" : 34545.4569
+          },
+          "post_data_total_credits" : {
+            "type" : "integer",
+            "example" : 45
+          },
+          "post_data_scope_setting" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_owner_ship_status" : {
+            "type" : "string",
+            "example" : "created or sold or purchased"
+          },
+          "post_data_like_count" : {
+            "type" : "integer",
+            "example" : 3
+          },
+          "post_data_share_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_comment_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_total_earnings" : {
+            "type" : "integer",
+            "example" : 345345.5656
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Posts"
+          }
+        }
+      },
+      "my-purchased-posts" : {
+        "required" : [ "post_image", "post_hash_tags", "post_user_tags", "post_data_allow_comments", "post_data_ask_price", "post_data_total_credits", "post_data_scope_setting", "post_data_owner_ship_status", "post_data_like_count", "post_data_share_count", "post_data_comment_count", "post_data_total_earnings", "code", "message" ],
+        "properties" : {
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_hash_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_user_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_data_allow_comments" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_ask_price" : {
+            "type" : "integer",
+            "example" : 34545.4569
+          },
+          "post_data_total_credits" : {
+            "type" : "integer",
+            "example" : 45
+          },
+          "post_data_scope_setting" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_owner_ship_status" : {
+            "type" : "string",
+            "example" : "created or sold or purchased"
+          },
+          "post_data_like_count" : {
+            "type" : "integer",
+            "example" : 3
+          },
+          "post_data_share_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_comment_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_total_earnings" : {
+            "type" : "integer",
+            "example" : 345345.5656
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Posts"
+          }
+        }
+      },
+      "mysoldposts" : {
+        "required" : [ "post_image", "post_hash_tags", "post_user_tags", "post_data_allow_comments", "post_data_ask_price", "post_data_total_credits", "post_data_scope_setting", "post_data_owner_ship_status", "post_data_like_count", "post_data_share_count", "post_data_comment_count", "post_data_total_earnings", "code", "message" ],
+        "properties" : {
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_hash_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_user_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_data_allow_comments" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_ask_price" : {
+            "type" : "integer",
+            "example" : 34545.4569
+          },
+          "post_data_total_credits" : {
+            "type" : "integer",
+            "example" : 45
+          },
+          "post_data_scope_setting" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_owner_ship_status" : {
+            "type" : "string",
+            "example" : "created or sold or purchased"
+          },
+          "post_data_like_count" : {
+            "type" : "integer",
+            "example" : 3
+          },
+          "post_data_share_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_comment_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_total_earnings" : {
+            "type" : "integer",
+            "example" : 345345.5656
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Posts"
+          }
+        }
+      },
+      "myposts" : {
+        "required" : [ "post_image", "post_hash_tags", "post_user_tags", "post_data_allow_comments", "post_data_ask_price", "post_data_total_credits", "post_data_scope_setting", "post_data_owner_ship_status", "post_data_like_count", "post_data_share_count", "post_data_comment_count", "post_data_total_earnings", "code", "message" ],
+        "properties" : {
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_hash_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_user_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_data_allow_comments" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_ask_price" : {
+            "type" : "integer",
+            "example" : 34545.4569
+          },
+          "post_data_total_credits" : {
+            "type" : "integer",
+            "example" : 45
+          },
+          "post_data_scope_setting" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_owner_ship_status" : {
+            "type" : "string",
+            "example" : "created or sold or purchased"
+          },
+          "post_data_like_count" : {
+            "type" : "integer",
+            "example" : 3
+          },
+          "post_data_share_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_comment_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_total_earnings" : {
+            "type" : "integer",
+            "example" : 345345.5656
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Posts"
+          }
+        }
+      },
+      "accountfollowing" : {
+        "type" : "object",
+        "required" : [ "following_user_id", "firstname", "lastname", "handle" ],
+        "properties" : {
+          "following_user_id" : {
+            "type" : "string",
+            "example" : "d290f1ee6c544b0190e6d701748f0851"
+          },
+          "firstname" : {
+            "type" : "string",
+            "example" : "John"
+          },
+          "lastname" : {
+            "type" : "string",
+            "example" : "Smith"
+          },
+          "handle" : {
+            "type" : "string",
+            "example" : "JSmith"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 3
+          }
+        }
+      },
+      "accountfollower" : {
+        "required" : [ "follower_user_id", "firstname", "lastname", "handle" ],
+        "properties" : {
+          "follower_user_id" : {
+            "type" : "string",
+            "example" : "d290f1ee6c544b0190e6d701748f0851"
+          },
+          "firstname" : {
+            "type" : "string",
+            "example" : "John"
+          },
+          "lastname" : {
+            "type" : "string",
+            "example" : "Smith"
+          },
+          "handle" : {
+            "type" : "string",
+            "example" : "JSmith"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "followers"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 3
+          }
+        },
+        "type" : "object"
+      },
+      "accountunfollow" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "UnFollowed successfully"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "accountfollow" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Followed successfully"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-itd-balance" : {
+        "required" : [ "itd_balance", "code", "message" ],
+        "properties" : {
+          "itd_balance" : {
+            "type" : "integer",
+            "example" : 456546.5676
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-request-received" : {
+        "required" : [ "user_id", "sender_user_id", "sender_firstname", "sender_lastname", "itd_amount", "date", "comments", "code", "message" ],
+        "properties" : {
+          "user_id" : {
+            "type" : "string",
+            "example" : "1sd345345345"
+          },
+          "sender_user_id" : {
+            "type" : "string",
+            "example" : "1sd3457878345345"
+          },
+          "sender_firstname" : {
+            "type" : "string",
+            "example" : "john"
+          },
+          "sender_lastname" : {
+            "type" : "string",
+            "example" : "smith"
+          },
+          "itd_amount" : {
+            "type" : "integer",
+            "example" : 345345.4545
+          },
+          "date" : {
+            "type" : "string",
+            "example" : "2018-08-08"
+          },
+          "comments" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-request-sent" : {
+        "required" : [ "user_id", "receiver_user_id", "receiver_firstname", "receiver_lastname", "itd_amount", "date", "comments", "code", "message" ],
+        "properties" : {
+          "user_id" : {
+            "type" : "string",
+            "example" : "1sd345345345"
+          },
+          "receiver_user_id" : {
+            "type" : "string",
+            "example" : "1sd3457878345345"
+          },
+          "receiver_firstname" : {
+            "type" : "string",
+            "example" : "john"
+          },
+          "receiver_lastname" : {
+            "type" : "string",
+            "example" : "smith"
+          },
+          "itd_amount" : {
+            "type" : "integer",
+            "example" : 345345.4545
+          },
+          "date" : {
+            "type" : "string",
+            "example" : "2018-08-08"
+          },
+          "comments" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-receive-itd" : {
+        "required" : [ "user_id", "sender_user_id", "sender_firstname", "sender_lastname", "sender_handle", "itd_amount", "comments", "code", "message" ],
+        "properties" : {
+          "user_id" : {
+            "type" : "string",
+            "example" : "1sd345345345"
+          },
+          "sender_user_id" : {
+            "type" : "string",
+            "example" : "1sd3457878345345"
+          },
+          "sender_firstname" : {
+            "type" : "string",
+            "example" : "john"
+          },
+          "sender_lastname" : {
+            "type" : "string",
+            "example" : "smith"
+          },
+          "sender_handle" : {
+            "type" : "string",
+            "example" : "smith"
+          },
+          "itd_amount" : {
+            "type" : "integer",
+            "example" : 345345.4545
+          },
+          "comments" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "codeomments" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-send-itd" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-history-earnings" : {
+        "required" : [ "credits_earned,", "equivalent_Itd_amount", "itd_conversion_rate", "date", "code", "message" ],
+        "properties" : {
+          "credits_earned" : {
+            "type" : "integer",
+            "example" : 565
+          },
+          "equivalent_Itd_amount" : {
+            "type" : "string",
+            "example" : 234234.4545
+          },
+          "itd_conversion_rate" : {
+            "type" : "integer",
+            "example" : 435
+          },
+          "date" : {
+            "type" : "string",
+            "example" : "2018-08-08"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-history-transaction" : {
+        "required" : [ "user_id", "first_name", "last_name", "itd_amount", "date", "code", "message" ],
+        "properties" : {
+          "user_id" : {
+            "type" : "string",
+            "example" : "1789dfg645kjhjkh76"
+          },
+          "first_name" : {
+            "type" : "string",
+            "example" : "John"
+          },
+          "last_name" : {
+            "type" : "string",
+            "example" : "smith"
+          },
+          "itd_amount" : {
+            "type" : "integer",
+            "example" : 5345.5657
+          },
+          "date" : {
+            "type" : "string",
+            "example" : "2018-08-08"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Followed successfully"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-forgot-tpin-verification" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "failed"
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-forgot-tpin" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "failed"
+          }
+        },
+        "type" : "object"
+      },
+      "wallet-login" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "failed"
+          }
+        },
+        "type" : "object"
+      },
+      "trade-network-privacy-status" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "failed"
+          }
+        },
+        "type" : "object"
+      },
+      "trade-network" : {
+        "required" : [ "user_id", "bids" ],
+        "properties" : {
+          "user_id" : {
+            "type" : "string",
+            "example" : "345r3y45"
+          },
+          "bids" : {
+            "type" : "integer",
+            "example" : 3.453453454567E8
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "failed"
+          }
+        },
+        "type" : "object"
+      },
+      "trade-deleted-history" : {
+        "required" : [ "quantity", "amount" ],
+        "properties" : {
+          "quantity" : {
+            "type" : "integer",
+            "example" : 345345
+          },
+          "amount" : {
+            "type" : "integer",
+            "example" : 3.453453454567E8
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "failed"
+          }
+        },
+        "type" : "object"
+      },
+      "trade-purchased-history" : {
+        "required" : [ "quantity", "amount" ],
+        "properties" : {
+          "quantity" : {
+            "type" : "integer",
+            "example" : 345345
+          },
+          "amount" : {
+            "type" : "integer",
+            "example" : 3.453453454567E8
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "failed"
+          }
+        },
+        "type" : "object"
+      },
+      "trade-sold-history" : {
+        "required" : [ "quantity", "amount" ],
+        "properties" : {
+          "quantity" : {
+            "type" : "integer",
+            "example" : 345345
+          },
+          "amount" : {
+            "type" : "integer",
+            "example" : 3.453453454567E8
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "failed"
+          }
+        },
+        "type" : "object"
+      },
+      "trade-history" : {
+        "required" : [ "post_id", "post_transaction", "post_price", "code", "message" ],
+        "properties" : {
+          "post_id" : {
+            "type" : "string",
+            "example" : "1g5gh5t54g5g"
+          },
+          "post_transaction" : {
+            "type" : "string",
+            "example" : "purchased"
+          },
+          "post_price" : {
+            "type" : "integer",
+            "example" : 3453454.5656
+          },
+          "post_date" : {
+            "type" : "string",
+            "example" : "26 jan 2018"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "bid updated"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "bids-sent-update-bid" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "bid updated"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "bids-sent-buy-now" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "bids-sent" : {
+        "required" : [ "post_id", "post_image", "post_ask_price" ],
+        "properties" : {
+          "post_id" : {
+            "type" : "string",
+            "example" : "65u7i8r43er66yu"
+          },
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_ask_price" : {
+            "type" : "integer",
+            "example" : 345.5677
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 5
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comments"
+          }
+        },
+        "type" : "object"
+      },
+      "bidreceived-edit-ask-price" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "page" : {
+            "type" : "integer",
+            "example" : 5
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comments"
+          }
+        },
+        "type" : "object"
+      },
+      "bidreceived-accept-bid" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "page" : {
+            "type" : "integer",
+            "example" : 5
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comments"
+          }
+        },
+        "type" : "object"
+      },
+      "bidreceived" : {
+        "required" : [ "post_id", "post_image", "post_ask_price" ],
+        "properties" : {
+          "post_id" : {
+            "type" : "string",
+            "example" : "65u7i8r43er66yu"
+          },
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_ask_price" : {
+            "type" : "integer",
+            "example" : 345.5677
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 5
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comments"
+          }
+        },
+        "type" : "object"
+      },
+      "bidreceived-amountblockedforbid" : {
+        "required" : [ "blocked_bid_amount" ],
+        "properties" : {
+          "blocked_bid_amount" : {
+            "type" : "integer",
+            "example" : 345345.4556
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comments"
+          }
+        },
+        "type" : "object"
+      },
+      "postcommentcreate" : {
+        "required" : [ "comment_post_id", "comment_user_id", "comments" ],
+        "properties" : {
+          "comment_post_id" : {
+            "type" : "string",
+            "example" : "r4g5g5y6u7i89o0p1"
+          },
+          "comment_user_id" : {
+            "type" : "string",
+            "example" : "1iy34598ggdfgf4h6h6"
+          },
+          "comments" : {
+            "type" : "string",
+            "example" : "Hello Keywo"
+          },
+          "parent_comment_id" : {
+            "type" : "string",
+            "example" : "1iy34598ggdfgfd5f6h6h"
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comments"
+          }
+        },
+        "type" : "object"
+      },
+      "postcomments" : {
+        "required" : [ "comment_post_id", "comment_user_id", "comments" ],
+        "properties" : {
+          "comment_id" : {
+            "type" : "string",
+            "example" : "r4g5g5y6u7i89o0p1"
+          },
+          "comments" : {
+            "type" : "string",
+            "example" : "Hello Keywo"
+          },
+          "comment_post_id" : {
+            "type" : "string",
+            "example" : "1iy34598ggdfgf4h6h6"
+          },
+          "comment_user_id" : {
+            "type" : "string",
+            "example" : "1iy34598ggdfgfd5f6h6h"
+          },
+          "comment_user_firstname" : {
+            "type" : "string",
+            "example" : "first"
+          },
+          "comment_user_lastname" : {
+            "type" : "string",
+            "example" : "Smith"
+          },
+          "comment_user_handle" : {
+            "type" : "string",
+            "example" : null
+          },
+          "comment_parent_id" : {
+            "type" : "string",
+            "example" : "7y9y7t6r5er56r898"
+          },
+          "comment_like_count" : {
+            "type" : "integer",
+            "example" : 456
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comments"
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          }
+        },
+        "type" : "object"
+      },
+      "posts" : {
+        "required" : [ "post_image", "post_hash_tags", "post_user_tags", "post_data_allow_comments", "post_data_ask_price", "post_data_total_credits", "post_data_scope_setting", "post_data_owner_ship_status", "post_data_like_count", "post_data_share_count", "post_data_comment_count", "post_data_total_earnings", "code", "message" ],
+        "properties" : {
+          "post_image" : {
+            "type" : "string",
+            "example" : "Image"
+          },
+          "post_hash_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_user_tags" : {
+            "type" : "string",
+            "example" : null
+          },
+          "post_data_allow_comments" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_ask_price" : {
+            "type" : "integer",
+            "example" : 34545.4569
+          },
+          "post_data_total_credits" : {
+            "type" : "integer",
+            "example" : 45
+          },
+          "post_data_scope_setting" : {
+            "type" : "integer",
+            "example" : 0
+          },
+          "post_data_owner_ship_status" : {
+            "type" : "string",
+            "example" : "created or sold or purchased"
+          },
+          "post_data_like_count" : {
+            "type" : "integer",
+            "example" : 3
+          },
+          "post_data_share_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_comment_count" : {
+            "type" : "integer",
+            "example" : 56
+          },
+          "post_data_total_earnings" : {
+            "type" : "integer",
+            "example" : 345345.5656
+          },
+          "page" : {
+            "type" : "integer",
+            "example" : 2
+          },
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Posts"
+          }
+        },
+        "type" : "object"
+      },
+      "bookmarkpost" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Post bookmarked successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "reportpost" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Post reported successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "hidepost" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Post hidden successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "sharepost" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Post shared successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "likepost" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Post liked successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "deletepost" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Post deleted successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "updatepost" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Post updated successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "postcommentdelete" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comment deleted successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "postcommentupdate" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "comment updated successfully"
+          }
+        },
+        "type" : "object"
+      },
+      "createpost" : {
+        "required" : [ "code", "message" ],
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 1
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "Post created successfully"
+          }
+        },
+        "type" : "object"
+      }
+    }
+  }
+}
